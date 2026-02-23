@@ -24,11 +24,29 @@ git clone https://github.com/ooosvsv/ultimate-twitter-reader.git /path/to/skills
 
 ## Usage
 
-### Direct URL Fetching
+### Direct URL Fetching (API)
 
 ```
 Read https://x.com/username/status/1234567890
 ```
+
+Uses fxtwitter API - fast, no login needed for public tweets.
+
+### With Browser (for full articles/login-required content)
+
+For X Articles, private tweets, or content requiring login, use **agent-browser**:
+
+```bash
+agent-browser open https://x.com/username/status/1234567890
+agent-browser snapshot
+agent-browser get text @e13
+```
+
+This skill integrates with agent-browser to fetch:
+- 📰 **X Articles** - Full article content beyond tweet character limit
+- 🔒 **Login-required content** - Protected tweets and threads
+- 🖼️ **Full page snapshots** - Complete conversation view
+- 💬 **Thread replies** - All replies in a conversation
 
 ### With Vision OCR (for images)
 
@@ -39,12 +57,18 @@ Use vision to extract text
 
 ### Examples
 
-**Simple tweet:**
+**Simple tweet (API):**
 ```
 Read https://x.com/yibie/status/2025413319549394996
 ```
 
-**Thread:**
+**Long article (browser):**
+```
+agent-browser open https://x.com/yibie/article/2025413319549394996
+agent-browser snapshot
+```
+
+**Thread (API or browser):**
 ```
 Read https://x.com/elonmusk/status/1234567890
 ```
@@ -65,6 +89,16 @@ Tweet content here...
 
 *Extracted via fxtwitter API*
 ```
+
+## API vs Browser
+
+| Feature | fxtwitter API | agent-browser |
+|---------|--------------|---------------|
+| Public tweets | ✅ Fast | ✅ Full access |
+| X Articles | ❌ Limited | ✅ Full content |
+| Login required | ❌ No | ✅ Yes |
+| Speed | ⚡ Fast | 🐢 Slower |
+| Setup | None | Requires browser |
 
 ## Requirements
 
